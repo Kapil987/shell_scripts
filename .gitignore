@@ -1,13 +1,15 @@
 #ignore backup files
-.bak
+ *.bak
 #ignore .org
-.org
+ *.org
 #ignore .class
-.class
+ *.class
 #ignore .php
-.php
+ *.php
 #but do not ignore index.php
 !index.php
 #ignore all starts with a,e,i,o,u.
 [aeiou]*.txt
+# file name
+
 
