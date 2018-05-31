@@ -1,5 +1,2 @@
- file 1:wq
- hel
 this file is edited by master branch
-this line is edited by bug2 branch
 
