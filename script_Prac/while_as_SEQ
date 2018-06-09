@@ -1,0 +1,18 @@
+################################
+#Purpose: To learn while as a sequence shell script
+#Version: 1.0
+#Owner 	: Kapil <kapil0123@gmail.com>
+#Input	: None
+#Output	: None
+################################
+#!/bin/bash
+
+NUM=$1
+INCR=$2
+END=$3
+while [ "$NUM" -lt "$END" ]
+do
+NUM=`expr $NUM + $INCR`
+echo "$NUM"
+
+done

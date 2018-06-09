@@ -1,0 +1,25 @@
+################################
+#Purpose: To make Mass User addition Script
+#Version: 1.0
+#Owner 	: Kapil <kapil0123@gmail.com>
+#Input	: Users
+#Output	: added Users
+################################
+#!/bin/bash
+
+USERLIST=$1
+if [ ! "$USERLIST" ]; then
+echo "please enter file with user list"
+exit
+fi
+
+if [ ! -f "$USERLIST" ]; then
+echo "please enter correct file name which has users"
+exit
+fi
+
+for OURUSER in `cat $USERLIST`
+do
+./create_USER $OURUSER
+done
+

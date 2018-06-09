@@ -1,0 +1,16 @@
+################################
+#Purpose: To learn while as for shell script
+#Version: 1.0
+#Owner 	: Kapil <kapil0123@gmail.com>
+#Input	: None
+#Output	: None
+################################
+#!/bin/bash
+
+NUM=1
+while [ "$NUM" -le 5 ]
+do
+echo "The number is $NUM"
+NUM=`expr $NUM + 1`
+done
+

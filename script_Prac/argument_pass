@@ -1,0 +1,19 @@
+################################
+#Purpose: To learn Argument Passing
+#Version: 1.0
+#Owner 	: Kapil <kapil0123@gmail.com>
+#Input	: None
+#Output	: None
+################################
+# Run as ./argument value
+
+#!/bin/bash
+echo "Running Script $0" #$0 stores the script name
+VALUE=$1 # this is agument 1
+if [ ! "$VALUE" ]; then
+echo "Please enter argument/value"
+exit
+fi
+echo "the entered value is: $VALUE"
+
+
