@@ -1,0 +1,45 @@
+################################
+#Purpose: To use all basic concepts
+#Version: 1.0
+#Owner 	: Kapil <kapil0123@gmail.com>
+#Input	: None
+#Output	: None
+################################
+
+#!/bin/bash
+
+#Task 1.a) Create user and take usr name as agumnt
+MYUSER=$1
+if [ ! "$MYUSER" ]; then
+echo "Please enter user name "
+exit
+fi
+
+#Task 1.b) Define user Password
+MYPASS=red
+
+#Task 1.c) Check if you are root
+ISROOT=`/usr/bin/whoami`
+if [ "$ISROOT" != "root" ]; then
+echo "You MUST be a root user"
+exit
+fi
+
+#Task 1.d.i) check is the user is already present
+#if echo $? returns 0 ie. success if -gt 0 then Failure
+/usr/bin/id $MYUSER
+
+#Task 1.d.2)if user is already  present
+if [ "$?" -eq 0 ]; then
+echo "The user is already present"
+exit
+fi
+
+#Task 1.d.3) if user not present creat user
+/sbin/useradd $MYUSER
+
+#Task 1.d.4) set the new user passwd
+echo "red"|/bin/passwd --stdin "$MYUSER"
+
+echo "user $MYUSER successfully created!!!"
+
