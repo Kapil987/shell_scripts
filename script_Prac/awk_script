@@ -1,0 +1,17 @@
+#!/bin/bash
+
+echo "enter /etc/passwd"
+read DIR
+
+echo "enter the delimeter except space"
+read DELI
+
+#echo "enter the field/column no"
+#read COL
+
+#DIR=test_awk
+#DELI=,
+
+awk -F$DELI '{print NR,$1}' $DIR
+
+

@@ -1,0 +1,11 @@
+#function
+
+message()
+{
+	echo "inside message function"
+}
+
+echo "outside message fn"
+
+message
+
