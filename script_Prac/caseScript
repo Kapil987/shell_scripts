@@ -1,0 +1,25 @@
+################################
+#Purpose: To learn CASE STATEMENT
+#Version: 1.0
+#Owner 	: Kapil <kapil0123@gmail.com>
+#Input	: None
+#Output	: None
+################################
+#!/bin/bash
+
+
+OSNAME=$1
+if [ ! "$OSNAME" ] ; then
+echo "Enter OSNAME as argument"
+exit
+fi
+case "$OSNAME" in
+	RHEL)
+		echo "You are using $OSNAME"
+		echo "yum -y install httpd"
+		;;
+	UBUNTU)
+		echo "you are using $OSNAME"
+		echo "apt-get -y install"
+		;;
+esac

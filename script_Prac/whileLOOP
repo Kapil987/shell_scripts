@@ -1,0 +1,18 @@
+################################
+#Purpose: To learn while loop in shell script
+#Version: 1.0
+#Owner 	: Kapil <kapil0123@gmail.com>
+#Input	: None
+#Output	: None
+################################
+#!/bin/bash
+
+ANS=y
+while [ "$ANS" == "y" ]
+do 
+echo "Please enter the username you wish to add"
+read OURUSER
+./create_USER $OURUSER
+echo "do want to add another user y -> yes or n -> no"
+read ANS
+done

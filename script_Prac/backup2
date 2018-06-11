@@ -1,0 +1,32 @@
+#!/bin/bash
+################################
+#Purpose: To Automate Backup
+#Version: 2.0
+#Owner 	: Kapil <kapil0123@gmail.com>
+#Input	: None
+#Output	: None
+################################
+#bash -x /home/kapil/git_Prac/script_Prac/backup2 can be used to enter to debug mode
+#Task take bakup of given folder
+echo "enter the DIR to be backed up"
+read SDIR 	#source dir
+
+#Task 2 back should be saved in /backdir
+DDIR=/backdir 	#destination dir
+
+#chk backup exist or not #if [ -f "/backdir/18-06-09.tar.gz" ]; then
+if [ -f "$DDIR/$ARCHIVE" ]; then
+echo "Backup already exist"
+exit 
+fi
+
+#Task 3 Backup file format
+CDATE=`date +%F` 	# =$(date +%F) ca be used
+HOSTNAME=$(whoami)
+ARCHIVE="$CDATE.tar.gz"
+echo "Backup started for : $SDIR"
+tar -czf $DDIR/$ARCHIVE $SDIR
+
+echo "Backup for : $SDIR finished"
+
+

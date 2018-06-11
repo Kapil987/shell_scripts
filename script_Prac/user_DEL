@@ -1,0 +1,13 @@
+################################
+#Purpose: To learn to delete mass users
+#Version: 1.0
+#Owner 	: Kapil <kapil0123@gmail.com>
+#Input	: None
+#Output	: None
+################################
+#!/bin/bash
+USERDEL=$1
+for i in `cat $USERDEL`
+do
+sudo userdel -r $i
+done

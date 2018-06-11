@@ -1,0 +1,26 @@
+################################
+#Purpose: To learn number test
+#Version: 1.0
+#Owner 	: Kapil <kapil0123@gmail.com>
+#Input	: None
+#Output	: None
+################################
+# Task Student pass or fail.
+# =,!=,>,<,>=,<= are not accepted here.
+
+#!/bin/bash
+echo "Enter student marks"
+read MARKS
+
+if [ "$MARKS" -gt 65 ]; then
+echo "student with $MARKS : FIRST DIVISION "
+elif [ "$MARKS" -gt 55 ]; then
+echo "student with $MARKS : SECOND DIVISION "
+elif [ "$MARKS" -gt 45 ]; then
+echo "student with $MARKS : THIRD DIVISION "
+else
+echo "student with $MARKS : FAIL "
+fi
+
+
+

@@ -1,0 +1,17 @@
+#!/bin/bash
+################################
+#Purpose: To learn funtion using inside script
+#Version: 1.0
+#Owner 	: Kapil <kapil0123@gmail.com>
+#Input	: None
+#Output	: None
+################################
+
+echo "in the script"
+		#defining a function
+function_1()	#two word name required separated by _
+{
+	echo "this is function"
+}
+function_1	#calling a function
+

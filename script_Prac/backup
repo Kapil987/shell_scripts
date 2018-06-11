@@ -1,0 +1,25 @@
+################################
+#Purpose: To automate backup
+#Version: 1.0
+#Owner 	: Kapil <kapil0123@gmail.com>
+#Input	: None
+#Output	: None
+################################
+#!/bin/bash
+
+echo "enter the folder you want to backup"
+read FOLDER
+
+#Task 1 backup should be saved in /backdir
+BDIR=/backdir
+DAY=$(date +%y-%m-%d)
+HOSTNAME=$(whoami)
+ARCHIVE="$HOSTNAME-$DAY.tar.gz" #value of Hostname and day
+#should be assiged to archive.
+#Task 2 backup file in format
+tar -czf $BDIR/$ARCHIVE $FOLDER
+
+#Task 3 if backup exist skip it
+
+
+

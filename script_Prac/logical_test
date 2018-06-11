@@ -1,0 +1,27 @@
+################################
+#Purpose: To learn Logical Test
+#Version: 1.0
+#Owner 	: Kapil <kapil0123@gmail.com>
+#Input	: None
+#Output	: None
+################################
+
+#!/bin/bash
+MARKS=$1
+if [ ! "$MARKS" ] ; then
+echo "enter marks" 
+exit
+fi
+
+if [ "$MARKS" -gt 100 -o "$MARKS" -lt 0 ]; then
+echo "Please enter marks between 0 to 100 range"
+exit
+fi
+
+if [ "$MARKS" -gt 65 -o "$MARKS" -lt 100 ]; then
+echo "Student with $MARKS : FIRST DIVISION"
+fi
+
+
+
+

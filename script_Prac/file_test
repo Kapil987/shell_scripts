@@ -1,0 +1,39 @@
+
+#!/bin/bash
+
+echo "please enter dir"
+read MYDIR
+#echo "dir = $MYDIR"
+
+if [ -d "$MYDIR" ]; then
+echo "directory $MYDIR exists"
+else
+echo "direcory $MYDIR does not exists"
+fi
+
+
+if [ -r "$MYDIR" ]; then
+echo "you have $MYDIR read permission "
+else
+echo "you do not have $MYDIR read permission "
+fi
+
+if [ -w "$MYDIR" ]; then
+echo "you have $MYDIR write permission "
+else
+echo "you do not have $MYDIR write permission "
+fi
+
+if [ -x "$MYDIR" ]; then
+echo "you have $MYDIR execute permission "
+else
+echo "you do not have $MYDIR execute permission "
+fi
+
+if [ -s "$MYDIR" ]; then
+echo "file size of $MYDIR is not zero "
+else
+echo "file size of $MYDIR is zero "
+fi
+
+
