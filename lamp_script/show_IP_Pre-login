@@ -1,0 +1,28 @@
+
+#  you can use the \4 and \6 escape characters to output the IPv4 and IPv6 addresses.
+ 
+[root@localhost ~]# ifconfig
+enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500 #enp0s3 N/W name
+        inet 153.65.48.50  netmask 255.255.254.0  broadcast 153.65.49.255
+        inet6 fe80::9a7f:b0cc:6125:82e9  prefixlen 64  scopeid 0x20<link>
+        ether 08:00:27:d6:65:07  txqueuelen 1000  (Ethernet)
+        RX packets 525  bytes 40189 (39.2 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 81  bytes 10739 (10.4 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1  (Local Loopback)
+        RX packets 68  bytes 5908 (5.7 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 68  bytes 5908 (5.7 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+[root@localhost ~]# /usr/sbin/ifconfig | grep "inet" | grep -v "127.0.0.1" | awk '{ print $2 }' | awk 'NR==1{print $1}' # to filter ip
+153.65.48.50
+[root@localhost ~]# vi /etc/issue
+\S
+Kernel \r on an \m
+My IP address: \4{enp0s3}
