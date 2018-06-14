@@ -1,0 +1,27 @@
+#!/bin/bash
+# create a file in root user account with permissions 644 and size greater than
+# 10M the provide the suitable inputs below. the output should be like
+# find: ‘/proc/4161/task/4161/fd/6’: No such file or directory
+#find: ‘/proc/4161/task/4161/fdinfo/6’: No such file or directory
+#find: ‘/proc/4161/fd/6’: No such file or directory
+#find: ‘/proc/4161/fdinfo/6’: No such file or directory
+#/root/file_perm_644/gitbucket_root.war #this is the desire output
+#/var/lib/rpm/Packages
+
+
+
+echo "To find a file in directory with suitable permissions"
+echo "Enter the directory"
+read DIR
+
+echo "enter the permission 664"
+read PER
+
+echo "enter the user name"
+read OWNER
+
+echo "enter the size"
+read NUM
+
+SEARCH=/usr/bin/find # why `/usr/bin/find` is not working here	
+"$SEARCH" $DIR -user $OWNER -perm $PER -size +$NUM'M'
