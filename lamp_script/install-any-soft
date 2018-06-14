@@ -1,4 +1,4 @@
-
+#!/bin/bash
 ################################
 #Purpose: To learn shell script
 #Version: 1.0
@@ -6,4 +6,23 @@
 #Input	: None
 #Output	: None
 ################################
+
+ISROOT=`/bin/whoami`
+if [ "$ISROOT" != "root" ];then
+echo "you must be root user to install"
+
+#install Funtion
+
+install()
+{
+	echo "Enter the Package you want to install"
+	read PACK
+
+	rpm -qa | grep -i $PACK
+	
+
+}
+
+
+
 
