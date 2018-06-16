@@ -7,16 +7,15 @@
 #Output	: None
 ################################
 
-echo "Enter software you want to install httpd"
-read SOFT
-rpm -qa | grep -i $SOFT
+echo "####### Script :: $0 STARTED #######..."
+httpd -v
 
 if [ "$?" -eq "0" ]; then
-echo "$SOFT is ALREADY installed!!!"
+echo "httpd is ALREADY installed!!!"
 else
-echo "installing $SOFT ..."
-sudo yum -y install $SOFT
-echo "installing $SOFT completed "
+echo "installing httpd ..."
+sudo yum -y install httpd
+echo "installing httpd completed "
 fi
 
 # checking if service is running of not
@@ -25,7 +24,7 @@ if [ "$?" -eq "0" ]; then
 echo "httpd is already RUNNING..."
 else
 COM=`systemctl start httpd.service`
-echo "STARTING httpd sevice $COM "
+echo "####### STARTING httpd sevice $COM #######"
 fi
 
 
