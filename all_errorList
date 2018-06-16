@@ -8,4 +8,12 @@ Query OK, 0 rows affected (0.000 sec)
 
 Sol: Use correct spelling of PRIVILEGES
 
+3.Permission denied when using git push after cloning
+Sol: Maybe you should verify following issues：
 
+a.you have a github account
+b.git config your username and -mail
+c.generate a ssh-key pri/pub pair and add the public key to your git account, please check this may give you help: generating new ssh key and cannot push git repository 'permission denied'
+d.check that ssh-key is successfully added: ssh -V username@github.com
+e. git remote add <alias> <url>
+f. git remote -v
