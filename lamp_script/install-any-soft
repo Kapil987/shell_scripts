@@ -19,7 +19,7 @@ install()
 {
         echo "Enter the Package you want to install"
         read PACK
-	rpm -qa $PACK
+	rpm -q $PACK
         if [ `echo $?` -eq 0 ]; then
         echo "httpd is ALREADY installed!!!"
 
@@ -41,7 +41,7 @@ install
 
 ######things not working #######
 #if [ `rpm -qa tree` -eq "0" ];
-
+#rpm -qa $PACK # as if you query all rpm is always successful
 
 ##########Info about Vi VISUAL BLOCK MODE ########
 #Press Esc to enter 'command mode'
