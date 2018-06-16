@@ -21,7 +21,7 @@ install()
         read PACK
 	rpm -q $PACK
         if [ `echo $?` -eq 0 ]; then
-        echo "httpd is ALREADY installed!!!"
+        echo "$PACK is ALREADY installed!!!"
 
         else
         echo "###########Installing $PACK ...#################"
