@@ -1,6 +1,6 @@
 #!/bin/bash
 ################################
-#Purpose: To learn shell script
+#Purpose: To Install any Package
 #Version: 1.0
 #Owner 	: Kapil <kapil0123@gmail.com>
 #Input	: None
@@ -31,6 +31,13 @@ install()
 }
 
 install
+######To add deleted files to Staging Dir #####
+# git add --all .
+
+######To Debug a Script #######
+#while running use bash -xv script-name
+#set -x : Display commands and their arguments as they are executed.
+#set -v : Display shell input lines as they are read.
 
 ######things not working #######
 #if [ `rpm -qa tree` -eq "0" ];
