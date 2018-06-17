@@ -28,4 +28,5 @@ echo "$SEARCH $REPLACE $FILE_NAME"
 
 ######################NOTES#####################
 #sed 's/\<$SEARCH\>/$REPLACE/' $FILE_NAME # works only wit double quotes as used in script main code
-#unable to use if with brackets and logical and -a operation ill now
+#unable to use if with brackets and logical and -a operation till now
+# got to know about git config --global push.default simple 
