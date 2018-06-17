@@ -7,21 +7,21 @@
 #Output	: None
 ######################################
 
-SEARCH=$1 	#1st argument
-REPLACE=$2	#2nd argument
+SEARCH=$1 				#1st argument
+REPLACE=$2				#2nd argument
 FILE_NAME=$3
-		#if [ ! ( "$SEARCH" ) -a ( "$REPLACE" ) ]; then
-		#CAL= "0 -a 0"
-		#if [ ! ( 0 -a 0 ) ] ); then
+					#if [ ! ( "$SEARCH" ) -a ( "$REPLACE" ) ]; then
+					#CAL= "0 -a 0"
+					#if [ ! ( 0 -a 0 ) ] ); then
 if [ ! "$SEARCH" ]; then
 echo "Enter 3 agr 1st search 2nd replace 3rd filename with extension"
 exit
 fi
-#sed 's/\<apple\>/pineapple/' fruit
+					#sed 's/\<apple\>/pineapple/' fruit
 sed  "s/\<$SEARCH\>/$REPLACE/" $FILE_NAME
 
 					#sed 's/\<$SEARCH\>/$REPLACE/' $FILE_NAME
-echo "$SEARCH $REPLACE $FILE_NAME"
+#echo "$SEARCH $REPLACE $FILE_NAME"
 
 
 
