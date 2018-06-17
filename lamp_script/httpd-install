@@ -17,7 +17,7 @@ echo "installing httpd ..."
 sudo yum -y install httpd
 echo "installing httpd completed "
 fi
-
+sleep 5
 # checking if service is running of not
 systemctl status httpd.service
 if [ "$?" -eq "0" ]; then
@@ -27,7 +27,15 @@ COM=`systemctl start httpd.service`
 echo "####### STARTING httpd sevice $COM #######"
 fi
 
+sleep 5
+#check if starting at restart is enable or not
+CHK=`sudo systemctl status httpd.service | awk '/disabled/ {print $NF}' `
 
+if [ "$CHK" != "disabled)" ]; then
+echo "#########httpd at is enabled at bootup#######"
+else
+echo "######httpd at bootup is disabled #######"
+fi
 
 
 
