@@ -1,6 +1,10 @@
 1.403 Forbidden You don't have permission to access / on this server
 Sol: this is due to the ip addr of window in /etc/httpd/conf.d/phpMyAdmin.conf is not correct. Choose wireless lan adapter or whatever connection type you have carefully and then sudo systemctl restart httpd.service.
 
+1.a) systemctl start httpd.service 
+failed to start journalctl -xn 
+remove all config files forcefully and then reinstall httpd
+
 2.MariaDB [mysql]> FLUSH PRIVILAGES;
 ERROR 1064 (42000): You have an error in your SQL syntax;                                                                 check the manual that corresponds to your MariaDB server v                                                                ersion for the right syntax to use near 'PRIVILAGES' at li                                                                ne 1
 MariaDB [mysql]> FLUSH PRIVILEGES;
