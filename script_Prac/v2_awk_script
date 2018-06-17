@@ -1,0 +1,25 @@
+#!/bin/bash
+
+##########################################
+#Purpose: To get list of normal user in OS
+#Version: 1.0
+#Owner  : Kapil <kapil0123@gmail.com>
+#Input  : None
+#Output : None
+##########################################
+
+echo "enter /etc/passwd"
+read DIR
+
+echo "enter the delimeter except space"
+read DELI
+
+#echo "enter the field/column no"
+#read COL
+
+#DIR=test_awk
+#DELI=,
+
+awk -F$DELI '{print NR,$1}' $DIR
+
+
