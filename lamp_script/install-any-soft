@@ -35,7 +35,7 @@ install
 ######things not working #######
 #if [ `rpm -qa tree` -eq "0" ];
 
-
+## 
 ##########Info about Vi VISUAL BLOCK MODE ########
 #Press Esc to enter 'command mode'
 #Use Ctrl+V to enter visual block mode
