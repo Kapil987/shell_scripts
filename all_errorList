@@ -1,0 +1,19 @@
+1.403 Forbidden You don't have permission to access / on this server
+Sol: this is due to the ip addr of window in /etc/httpd/conf.d/phpMyAdmin.conf is not correct. Choose wireless lan adapter or whatever connection type you have carefully and then sudo systemctl restart httpd.service.
+
+2.MariaDB [mysql]> FLUSH PRIVILAGES;
+ERROR 1064 (42000): You have an error in your SQL syntax;                                                                 check the manual that corresponds to your MariaDB server v                                                                ersion for the right syntax to use near 'PRIVILAGES' at li                                                                ne 1
+MariaDB [mysql]> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.000 sec)
+
+Sol: Use correct spelling of PRIVILEGES
+
+3.Permission denied when using git push after cloning
+Sol: Maybe you should verify following issues：
+
+a.you have a github account
+b.git config your username and -mail
+c.generate a ssh-key pri/pub pair and add the public key to your git account, please check this may give you help: generating new ssh key and cannot push git repository 'permission denied'
+d.check that ssh-key is successfully added: ssh -V username@github.com
+e. git remote add <alias> <url>
+f. git remote -v

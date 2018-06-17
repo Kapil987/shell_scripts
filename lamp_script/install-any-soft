@@ -1,6 +1,6 @@
 #!/bin/bash
 ################################
-#Purpose: To learn shell script
+#Purpose: To Install any Package
 #Version: 1.0
 #Owner 	: Kapil <kapil0123@gmail.com>
 #Input	: None
@@ -19,9 +19,9 @@ install()
 {
         echo "Enter the Package you want to install"
         read PACK
-	rpm -qa $PACK
+	rpm -q $PACK
         if [ `echo $?` -eq 0 ]; then
-        echo "httpd is ALREADY installed!!!"
+        echo "$PACK is ALREADY installed!!!"
 
         else
         echo "###########Installing $PACK ...#################"
@@ -31,11 +31,19 @@ install()
 }
 
 install
+######To add deleted files to Staging Dir #####
+# git add --all .
+
+######To Debug a Script #######
+#while running use bash -xv script-name
+#set -x : Display commands and their arguments as they are executed.
+#set -v : Display shell input lines as they are read.
 
 ######things not working #######
 #if [ `rpm -qa tree` -eq "0" ];
 
-## 
+#rpm -qa $PACK # as if you query all rpm is always successful
+
 ##########Info about Vi VISUAL BLOCK MODE ########
 #Press Esc to enter 'command mode'
 #Use Ctrl+V to enter visual block mode
@@ -56,38 +64,23 @@ install
 #State : Sleeping, pid: 2600
 
 #First i attempt to kill the process
-
 # kill -9 2600
-
 #the process could not be stopped
 
 #Second i attempt to kill all yum process
-
 # killall -9 yum
 
 #still the process could not be stopped
-
 #then i shutdown my server and switched on again and still the same result.
 
 #finally i remove the yum.pid 2600
-
 #after this yum started working fine.
-
 #Final solution if you fail to stop the process :
-
-#rm -f /var/run/yum.pid 2600
-
- 
+# rm -f /var/run/yum.pid 2600
 
 #then update your yum
-
 # yum -y update
-
- 
-
 #Make sure that yum-updatesd is started :
-
-#/etc/init.d/yum-updatesd status
-
+# /etc/init.d/yum-updatesd status
 # /etc/init.d/yum-updatesd start
 
