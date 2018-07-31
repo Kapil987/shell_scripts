@@ -1,0 +1,16 @@
+#!/bin/bash
+###################################
+#Purpose: To learn shell script
+#Version: 1.0
+#Owner:   kapil
+#Input:   None
+#Outpu:   None
+####################################
+COM="Hello world" # COM is a variable
+echo "$COM"
+sleep 3
+echo '$COM'
+COM=`date`
+sleep 3
+echo "$COM"
+

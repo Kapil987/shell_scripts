@@ -1,0 +1,44 @@
+#!/bin/bash
+######################################
+#Purpose: To use all basic concepts
+#Version: 2.0
+#Owner  : Kapil <kapil0123@gmail.com>
+#Input  : Username as agrgument 1
+#Output : User as argument1 is created
+#######################################
+
+
+echo "####### script $0 is started #########" 
+## Taking username as argument ##
+if [ ! "$1" ]; then
+echo "Please enter the username as agrument"
+exit
+fi
+
+## Assigning passwords to the user can be modified to take password from user ##
+MYPASS="abc"
+
+## Checking for root user ##
+IROOT=`/usr/bin/whoami`
+if [ "$IROOT" != "root" ] ; then
+#echo " You are a root user "
+#else 
+echo " You must be a root user "
+exit 
+fi
+
+## Check if user is already present ##
+/usr/bin/id $1 &> /dev/null
+CHK=`echo "$?"`
+if [ "$CHK" -eq "0" ] ; then
+echo "User "$1" already present"
+exit
+fi
+
+## If not present add user and enforce user to change passwd in next login##
+/usr/sbin/useradd $1
+echo "$MYPASS" | /usr/bin/passwd --stdin "$1" &> /dev/null
+echo "Password for $1 updated successfully"
+passwd -e $1
+echo " $1 User is successfully created \n"
+echo "xxxxxxx script $0 is ended   xxxxxxxxxx" 

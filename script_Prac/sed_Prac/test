@@ -1,0 +1,35 @@
+#!/bin/bash
+######################################
+#Purpose: To learn shell script
+#Version: 1.0
+#Owner 	: Kapil <kapil0123@gmail.com>
+#Input	: None
+#Output	: None
+######################################
+
+SEARCH=$1 				#1st argument
+REPLACE=$2				#2nd argument
+FILE_NAME=$3
+					#if [ ! ( "$SEARCH" ) -a ( "$REPLACE" ) ]; then
+					#CAL= "0 -a 0"
+#if [ $2 ]; then
+#if [ ! "$SEARCH" ]; then
+ab=0 && 0
+if [ "$ab" ]; then
+echo "if true"
+exit
+else
+echo "if false"
+fi 					#sed 's/\<apple\>/pineapple/' fruit
+#sed  "s/\<$SEARCH\>/$REPLACE/" $FILE_NAME
+
+					#sed 's/\<$SEARCH\>/$REPLACE/' $FILE_NAME
+#echo "$SEARCH $REPLACE $FILE_NAME"
+
+
+
+
+######################NOTES#####################
+#sed 's/\<$SEARCH\>/$REPLACE/' $FILE_NAME # works only wit double quotes as used in script main code
+#unable to use if with brackets and logical and -a operation till now
+# got to know about git config --global push.default simple 
