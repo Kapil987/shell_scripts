@@ -8,7 +8,7 @@
 ################################
 
 echo "####### Script :: $0 STARTED #######..."
-httpd -v
+httpd -v &> /dev/null
 
 if [ "$?" -eq "0" ]; then
 echo "httpd is ALREADY installed!!!"
