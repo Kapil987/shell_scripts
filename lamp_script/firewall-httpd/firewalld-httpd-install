@@ -1,6 +1,7 @@
 #!/bin/bash
 ################################
-#Purpose: To install httpd
+#Purpose: To install httpd with 
+#	  firewalld exception
 #Version: 1.0
 #Owner 	: Kapil <kapil0123@gmail.com>
 #Input	: None
@@ -8,6 +9,27 @@
 ################################
 
 echo "####### Script :: $0 STARTED #######..."
+# Checking if firewalld package is installed
+install_check()
+{
+        #echo "Enter the Package you want to install"
+        #read PACK
+        echo " this is the $PACK1 "
+        exit
+        rpm -q $PACK1
+        if [ `echo $?` -eq 0 ]; then
+        echo "$PACK1 is ALREADY installed!!!"
+
+        else
+        echo "###########Installing $PACK1 ...#################"
+        sudo yum -y install $PACK1
+        echo "##########installing $PACK1 completed############# "
+        fi
+}
+
+PACK1=firewalld
+install_check $PACK1
+exit
 httpd -v &> /dev/null
 
 if [ "$?" -eq "0" ]; then

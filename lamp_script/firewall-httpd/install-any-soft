@@ -12,25 +12,29 @@ if [ "$ISROOT" != "root" ];then
 echo "you must be root user to install"
 exit
 fi
-
+VAR=tree
 #install Funtion
-
+#echo " this is what you give $1"
 install()
 {
-        echo "Enter the Package you want to install"
-        read PACK
-	rpm -q $PACK
-        if [ `echo $?` -eq 0 ]; then
-        echo "$PACK is ALREADY installed!!!"
-
-        else
-        echo "###########Installing $PACK ...#################"
-        sudo yum -y install $PACK
-	echo "##########installing $PACK completed############# "
-	fi
+        #echo "Enter the Package you want to install"
+        #read PACK
+	echo " this is the $VAR "
+#	exit
+#	rpm -q $1
+#        if [ `echo $?` -eq 0 ]; then
+#        echo "$1 is ALREADY installed!!!"
+#
+#        else
+#        echo "###########Installing $1 ...#################"
+#        sudo yum -y install $1
+#	echo "##########installing $PACK completed############# "
+#	fi
 }
 
-install
+install $VAR
+VAR=httpd
+install $VAR
 ######To add deleted files to Staging Dir #####
 # git add --all .
 
