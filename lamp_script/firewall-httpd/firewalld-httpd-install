@@ -9,54 +9,69 @@
 ################################
 
 echo "####### Script :: $0 STARTED #######..."
-# Checking if firewalld package is installed
+## Checking if root user
+IROOT=`whoami`
+if [ "$IROOT" != "root" ] ; then
+echo "You must be a root user"
+exit
+fi
+
+## Checking if firewalld package is installed
 install_check()
 {
         #echo "Enter the Package you want to install"
         #read PACK
-        echo " this is the $PACK1 "
-        exit
-        rpm -q $PACK1
+        #echo " this is the $PACK "
+        rpm -q $PACK
         if [ `echo $?` -eq 0 ]; then
-        echo "$PACK1 is ALREADY installed!!!"
-
+        echo "$PACK is ALREADY installed!!!"
         else
-        echo "###########Installing $PACK1 ...#################"
-        sudo yum -y install $PACK1
-        echo "##########installing $PACK1 completed############# "
+        echo "###########Installing $PACK ...#################"
+        yum -y install $PACK
+        echo "##########INSTALLATION FOR $PACK COMPLETED############# "
         fi
 }
 
-PACK1=firewalld
-install_check $PACK1
-exit
-httpd -v &> /dev/null
+#PACK1=firewalld
+for PACK in firewalld httpd 
+do
+install_check $PACK
+done
 
+#exit
+#httpd -v &> /dev/null
+## Checking if service is running or not
+for SERVICE in firewalld.service httpd.service
+do
+systemctl status $SERVICE &> /dev/null
 if [ "$?" -eq "0" ]; then
-echo "httpd is ALREADY installed!!!"
+echo "$SERVICE is already RUNNING..."
 else
-echo "installing httpd ..."
-sudo yum -y install httpd
-echo "installing httpd completed "
+COM=`systemctl start $SERVICE`
+echo "####### STARTING $SERVICE  #######"
 fi
-sleep 3
-# checking if service is running of not
-systemctl status httpd.service
-if [ "$?" -eq "0" ]; then
-echo "httpd is already RUNNING..."
-else
-COM=`systemctl start httpd.service`
-echo "####### STARTING httpd sevice $COM #######"
-fi
+done
 
+## Choose port number for httpd
+#cat /etc/httpd/conf/httpd.conf | grep ^Listen
+#echo "Do you want to change the default port number for httpd ie. 80 \nPress 1 to change \nPress 2 to continue" 
+#read VAR
+#case VAR in
+#	1) echo "Enter the port number on which you want for httpd"
+#		read NUM
+#		;;
+#
+#CASE
+#
+# sudo firewall-cmd --zone=public --add-port=5000/tcp
 sleep 3
-#check if starting at restart is enable or not
+## Check if starting at restart is enable or not
 CHK=`sudo systemctl status httpd.service | awk '/disabled/ {print $NF}' `
 
 if [ "$CHK" != "disabled)" ]; then
 echo "#########httpd at is enabled at bootup#######"
 else
-echo "######httpd at bootup is disabled #######"
+echo -e "######httpd at bootup is disabled to enable it use \n sudo systemctl enable httpd.service #######"
 fi
 
 
