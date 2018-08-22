@@ -15,12 +15,14 @@ sudo yum -y install php
 fi
 
 ## Creating PHP test page
+echo "Creating test page for PHP"
 cd /var/www/html
 touch dynamic.php
 echo -e "<?php 
-echo \""This is test php page"\"; \n
+echo \""This is test php page"\";
 date_default_timezone_set('Asia/Calcutta');
-echo \" "Today is "\" . date(\""Y.m.d"\"); \n
+echo \" "Today is "\" . date(\""Y.m.d"\");
 echo \"" The time is "\" . date(\""h:i:sa"\");
 ?>" > dynamic.php
 
+echo "### END OF SCRIPT ###"
