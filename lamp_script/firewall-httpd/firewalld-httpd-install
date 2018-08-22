@@ -62,8 +62,9 @@ done
 #		;;
 #
 #CASE
-#
-# sudo firewall-cmd --zone=public --add-port=5000/tcp
+## Creating exception for port 80 as httpd is running on port 80
+echo "Creating exception for port 80"
+sudo firewall-cmd --zone=public --add-port=80/tcp
 sleep 3
 ## Check if starting at restart is enable or not
 CHK=`sudo systemctl status httpd.service | awk '/disabled/ {print $NF}' `
