@@ -63,7 +63,7 @@ done
 #
 #CASE
 ## Creating exception for port 80 as httpd is running on port 80
-echo "Creating exception for port 80 for this session \n for permanently adding use sudo firewall-cmd --zone=public --add-port=80/tcp --permanent"
+echo "Creating exception for port 80"
 sudo firewall-cmd --zone=public --add-port=80/tcp
 sleep 3
 ## Check if starting at restart is enable or not

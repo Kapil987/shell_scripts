@@ -1,0 +1,26 @@
+#!/bin/bash
+# This scritp needs to be run after httpd is installed
+
+## Checking for httpd is installed or not
+httpd -v &> /dev/null
+if [ ! "$?" -eq "0" ] ; then
+echo " 1st Use firewall-httpd-install script to install httpd then run this script"
+fi
+
+## Installing PHP
+php --version &> /dev/null
+if [ ! "$?" -eq "0" ] ; then
+echo " php is not installed so installing php"
+sudo yum -y install php
+fi
+
+## Creating PHP test page
+cd /var/www/html
+touch dynamic.php
+echo -e "<?php 
+echo \""This is test php page"\"; \n
+date_default_timezone_set('Asia/Calcutta');
+echo \" "Today is "\" . date(\""Y.m.d"\"); \n
+echo \"" The time is "\" . date(\""h:i:sa"\");
+?>" > dynamic.php
+
