@@ -53,6 +53,8 @@ fi
 done
 
 ## Choose port number for httpd
+# sudo sed -i 's/Listen 80/Listen 9090/' /etc/httpd/conf/httpd.conf
+# after changing the port number make sure to restart httpd service
 #cat /etc/httpd/conf/httpd.conf | grep ^Listen
 #echo "Do you want to change the default port number for httpd ie. 80 \nPress 1 to change \nPress 2 to continue" 
 #read VAR

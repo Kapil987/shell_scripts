@@ -25,4 +25,15 @@ echo \" "Today is "\" . date(\""Y.m.d"\");
 echo \"" The time is "\" . date(\""h:i:sa"\");
 ?>" > dynamic.php
 
+## Installing phpMyAdmin
+rpm -q phpMyAdmin
+
+if [ ! "$?" -eq "0"]
+echo "Installing phpMyAdmin.."
+sudo yum install -y phpMyAdmin
+echo "Enter you windows ip (ipconfig)"
+read WIP
+
+echo "Allowing windows ip in /etc/httpd/conf.d/phpMyAdmin.conf"
+
 echo "### END OF SCRIPT ###"
