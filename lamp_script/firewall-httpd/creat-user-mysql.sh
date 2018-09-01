@@ -1,6 +1,6 @@
 #!/bin/bash
 # Functions
-ok() { echo -e '\e[32m'$1'\e[m'; echo "$1"; } # To print output in Green
+ok() { echo -e '\e[32m'$1'\e[m'; echo "$1"; } # To print output in Green , \e[m used for no color
 
 EXPECTED_ARGS=3
 E_BADARGS=65
