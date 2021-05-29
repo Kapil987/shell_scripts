@@ -7,6 +7,10 @@
 ######################################################
 #!/bin/bash
 
+# The script assumes that you have created a user example ansible on master machine and want to create same user on remote server to build trust
+# relationship (ssh without password) and then later manage with a configuration management tool such as ansible
+# Your current directory should containe TestScript.sh server_list, ** (double star) are the points where you need to make changes
+
 # Get the UserName to use while logging into a Remote machine
 #echo "Enter the Remote UserName"
 #read rmtuname
@@ -14,14 +18,12 @@
 #echo "Enter the Remote Password"
 #read -s rmtpasswrd
 
-# once temporary username and password are setup then use configuration management tool to change the password
-USERNAME=root
-rmtpasswrd=tdc
 
-temp_user=temp
-temp_pass=tdc
-# Read the ServerNames from Properties file
-for server in `cat server_list`
+USERNAME=root # root login of remote server needs to be provided
+rmtpasswrd=your_pass # root pass of remote server needs to be provided
+
+# Read the ServerNames from server_list file
+for server in `cat server_list` # should be in same directory
 do
         # Printing the ServerName
         echo "Connecting to "$server
@@ -29,8 +31,10 @@ do
         # Write some Shell Script for Temporary Usage and Save in Current location
         cat << 'EOF' > ./TestScript.sh
                 #!/bin/bash
-                temp_user=temp  # add temporary user here
-                temp_pass=tdc   # add temporary password here
+                # Script for remote server
+                # Once temporary username and password are setup then use configuration management tool to change the password
+                temp_user=ansible  # this user will be for which you need to build the trust relationship **
+                temp_pass=your_pass   # add temporary password for remote user **
                 list_pack="tree vim-enhanced" # similary add more packages with space or use configuration management tool
                 #echo "My Name is $0"
                 #echo "I am Running on `hostname`"
@@ -59,7 +63,7 @@ do
                 }
                 install_pack # can be disabled if pack installation not required
 
-                ## check if user already present
+                ## Check if USER already present
                 echo -e "\nUser creation/validation process started\n"
                 /usr/bin/id $temp_user
                 if [ "$?" -eq 0 ]; then
@@ -69,7 +73,7 @@ do
                 echo "Adding User on Remote Server:: $temp_user"
                 useradd $temp_user
                 echo $temp_pass | passwd --stdin $temp_user
-                #sshpass -p$rmtpasswrd ssh-copy-id $USERNAME@$server
+  
                 #echo "The Date on the Current System is `date`"
                 #echo "That's all!!. I am Exitting"
                 exit 0
