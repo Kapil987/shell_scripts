@@ -17,7 +17,7 @@ temp_user=ansibledb
 useradd $temp_user
 #temp_pass=your_pass
 echo 'dGRjCg==' | base64 --decode | passwd --stdin $temp_user
-echo "$temp_user ALL=(ALL)       ALL" >> /etc/sudoers
+echo "$temp_user ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
 # #date > /etc/vagrant_provisioned_at
 SCRIPT
 ## Number of servers to be provision and there configuration as an array
