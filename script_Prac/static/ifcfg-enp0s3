@@ -1,3 +1,5 @@
+# edit this file /etc/sysconfig/network-scripts/ifcfg-enp0s3 choose "ifcfg-enp0s3" based on "ip addr" outputs, gateway has to be as given in the file
+# 192.168.0.1 is the default gateway that is used by routers and modems
 TYPE="Ethernet"
 PROXY_METHOD="none"
 BROWSER_ONLY="no"
