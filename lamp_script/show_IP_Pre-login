@@ -25,4 +25,4 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 [root@localhost ~]# vi /etc/issue
 \S
 Kernel \r on an \m
-iMy IP address: \4{enp0s3}
+My IP address: \4{enp0s3}
